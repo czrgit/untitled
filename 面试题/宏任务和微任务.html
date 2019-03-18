@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 宏任务
+    *   分类:setTimeout(),setInterval(),requestAnimationFrame
+    *   1.宏任务所处的队列是宏任务队列
+    *   2.第一个宏任务队列只有一个任务：执行主线程的js代码
+    *   3.宏任务可以有多个
+    *   4.当宏任务队列中的任务执行完毕，会查看是否有微任务，如果有微任务就执行全部微任务队列里的所有任务，然后再
+    *      执行宏任务
+    *
+    * 微任务
+    *   分类：new Promise().then() process.nextTick()
+    *   1.微任务所处的队列就是微任务队列
+    *   2.只有一个微任务队列
+    *   3.在上一个宏任务队列执行完毕后如果有微任务队列就会先执行微任务队列里所有的任务
+    *
+    *
+    * */
+
+
+    console.log("----------start--------------")
+    setTimeout(()=>{
+       console.log("setTimeout()")
+    },0)
+    new Promise((resolve,reject)=>{
+        for(let i = 0 ;i<5;i++){
+            console.log(i)
+        }
+        resolve();//修改promise实例对象的状态为成功状态
+    }).then(()=>{
+        console.log('promise成功回调函数')
+    })
+
+
+    console.log("----------end-----------------")
+
+
+</script>
+</body>
+</html>

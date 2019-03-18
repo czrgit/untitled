@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class Person{
+            //constructor构造函数
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            //声明方法
+            showName(){
+                console.log(this.name);
+            }
+        }
+        //实例化对象
+        let person = new Person('czr',15);
+        // console.log(person)
+        // console.log(person.name);
+        // console.log(person.age);
+        // person.showName();
+
+        class NewPeron extends Person{
+            constructor(name,age,home){
+                super(name,age);//当继承父类的构造函数时需要使用super()才可以,而且需要传递构造函数的参数
+                this.home = home;
+            }
+            showName(){//重写方法能覆盖父类的方法
+                console.log("我是重写的方法")
+            }
+            showHome(){
+                console.log(this.home);
+            }
+        }
+        let newPerson = new NewPeron('czr',15,'gd');
+        console.log(newPerson)
+        console.log(newPerson.name);
+        console.log(newPerson.age);
+        console.log(newPerson.home);
+        newPerson.showName();
+        newPerson.showHome();
+    </script>
+</body>
+</html>

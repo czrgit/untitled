@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>面试题-10.rem适配</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //rem的计算
+    ///*
+    // 1.640是设计图的大小，480是实际屏幕大小
+    //480/670 = 0.75 屏幕对比比例
+    //
+
+    /*
+    * 2.原font-size = 20px
+    * 3.480的font-size = 20*0.75 = 15px
+    *
+    * */
+    //2.
+    // */
+    window.onload = function () {
+        var width = document.documentElement.clientWidth;//获取屏幕的最大宽度
+        var htmlNode = document.querySelector('html')//获取html节点
+        htmlNode.style.fontSize = width + 'px'//设置html的根字体大小为屏幕的宽度
+    }
+</script>
+</body>
+</html>

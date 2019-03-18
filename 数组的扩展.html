@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<script>
+    let btns = document.getElementsByTagName("button");
+    Array.from(btns).forEach(function (item, index) {//把伪数组转换为真数组
+        console.log(item)
+    })
+    let arr = Array.of(12, 5, 8, "ddd");//将一系列值转化为数组
+    console.log(arr);
+    let arr2 = [1,5,6,3,2,4];
+    let result = arr2.find(function (item,index) {//找出第一个满足条件返回true的元素
+        return item > 4;
+    })
+    console.log(result);
+    result = arr2.findIndex(function (item,index) {//找出第一个满足条件返回true的元素的下标
+        return item > 4;
+    })
+    console.log(result);
+</script>
+</body>
+</html>

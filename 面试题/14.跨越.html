@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题-14.跨越</title>
+</head>
+<body>
+    <!--
+    什么是跨越，解决跨越的方法
+        1.同源策略
+          -是浏览器的安全策略
+          -协议名，域名，端口号必须一致
+        2.跨越
+          -违背同源策略就会跨越
+        3.解决跨越的方法
+          -jsonp cors 服务器代理
+
+    -->
+
+<script>
+//1.创建script标签
+    var script = document.createElement('script')
+    //2.设置回调函数
+    function getData(data) {
+        //数据请求回来会被触发函数
+        console.log(data)
+    }
+    //3.设置script 的src属性
+    srcipt.src = 'http://localhost:3000?callback=getData'
+    //4.让script生效
+    document.body.appendChild(script )
+</script>
+</body>
+</html>

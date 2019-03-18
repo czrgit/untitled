@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题-3.封装函数将字符串进行驼峰命名</title>
+</head>
+<body>
+<script>
+    // var foo = 'get-element-by-id'
+    // //根据某个字符进行切割
+    // var arr = foo.split('-')//返回一个切割后的数组
+    // //除了arr[0]不进行字符串首字母进行大写转换，其他的都进行转换
+    // //charAt()根据下标获取字符转的字符
+    // //toUpperCase()把字母转为大写
+    // //substr()根据截取的起初位置和结束位置获得字符串
+    // console.log(arr[1].charAt(0).toUpperCase() + arr[1].substr(1, arr[1].length - 1))
+    //
+    // for (var i = 1; i < arr.length; i++) {
+    //     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1, arr[i].length - 1)
+    // }
+    // //根据某个字符将数组转换为字符串
+    // console.log(arr.join(''))
+
+   function fooToString(foo)
+    {
+        //根据某个字符进行切割
+        var arr = foo.split('-')//返回一个切割后的数组
+        //除了arr[0]不进行字符串首字母进行大写转换，其他的都进行转换
+        //charAt()根据下标获取字符转的字符
+        //toUpperCase()把字母转为大写
+        //substr()根据截取的起初位置和结束位置获得字符串
+        // console.log(arr[1].charAt(0).toUpperCase() + arr[1].substr(1, arr[1].length - 1))
+
+        for (var i = 1; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1, arr[i].length - 1)
+        }
+        //根据某个字符将数组转换为字符串
+        return arr.join('')
+    }
+     // var foo = fooToString('get-element-by-id')
+    console.log(fooToString('get-element-by-id'))
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题-5.翻转数组</title>
+</head>
+<body>
+<script>
+    var arr = [2,5,9,33,1,0,55]
+    //冒泡排序
+    //1.轮数是数组的长度-1
+    //2.次数是数组的长度-1并加上轮数的自增
+    //3.使用if进行判断前一个数大于后一个数时进行交换
+    //4.使用第三方变量进行交换
+
+    //轮数
+    for (var i = 0; i < arr.length -1;i++){
+        for (var j=0;j<arr.length-1-i;j++){
+            if(arr[j]<arr[j+1]){//如果是小于号就从大到小排序，大于号从小到大排序
+                var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    console.log(arr)
+    //翻转数组
+    /*1.翻转的次数arr.length/2
+      2.第一个元素是arr[0] 和最后一个元素进行交换 arr[arr.length-1-0]
+    * 3.第三方变量进行交换
+    * */
+
+
+        for(var i = 0;i<arr.length/2;i++){
+            //arr[0]  arr[arr.length-1-0]
+
+            var temp = arr[i]
+            arr[i] = arr[arr.length-1-i]
+            arr[arr.length-1-i] = temp
+        }
+        console.log(arr)
+    //冒泡排序把数组从小到大进行排序，然后使用翻转数组把数组从大到小进行排序
+</script>
+</body>
+</html>

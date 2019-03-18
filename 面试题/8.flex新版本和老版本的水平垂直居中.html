@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题-8.flex新版本和老版本的水平垂直居中</title>
+</head>
+<style>
+    #wrap{
+        width: 500px;
+        height: 500px;
+        background:#cccccc;
+        /*position: relative; !*相对定位*!*/
+        /*display:flex;*/
+        /*justify-content: center;!*主轴水平居中 类似x轴*!*/
+        /*align-items: center;!*侧轴垂直居中 类似y轴*!*/
+
+        display: -webkit-box;/*类似display:flex*/
+        -webkit-box-pack: center;/*justify-content: center;!*主轴水平居中 类似x轴*!*/
+        -webkit-box-align: center;/*align-items: center;!*侧轴垂直居中 类似y轴*!*/
+    }
+    #wrap .box{
+        width: 200px;
+        height: 200px;
+        background: lawngreen;
+        /*position: absolute; !*绝对定位*!*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+        /*transform: translate(-50%,-50%);*/
+        /*margin-top: -100px;*/
+        /*margin-left: -100px;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*margin: auto;*/
+    }
+</style>
+<body>
+<!--
+水平垂直居中第一种方法
+父元素设置position relative 为相对定位
+子元素设置 top right left bottom 都为 0
+position absolute 为绝对定位 margin auto
+
+第二种
+top: 50%;
+left: 50%;
+margin-top: -100px;
+/*margin-left: -100px;*/
+
+第三种
+/*top: 50%;*/
+/*left: 50%;*/
+/*transform: translate(-50%,-50%);*/
+
+第四种 flex新版本
+display:flex;
+justify-content: center;/*主轴水平居中 类似x轴*/
+align-items: center;/*侧轴垂直居中 类似y轴*/
+
+第五种 flex老版本
+display: -webkit-box;/*类似display:flex*/
+-webkit-box-pack: center;/*justify-content: center;!*主轴水平居中 类似x轴*!*/
+-webkit-box-align: center;/*align-items: center;!*侧轴垂直居中 类似y轴*!*/
+-->
+
+<div id="wrap">
+    <div class="box"></div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

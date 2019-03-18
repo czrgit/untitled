@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .warp{
+            position: relative;
+            height: 100px;
+            background: rgba(0,0,0,.5);
+
+        }
+        .warp .module{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: url("./IMG_20190302_124834.jpg") no-repeat;
+            background-size: 100% 100%;/*把图片的宽高跟父元素一样*/
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        img{
+            margin: 24px 0 0 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <img src="IMG_20190302_124834.jpg" width="64" height="64">
+    <div class="module"></div>
+</div>
+</body>
+</html>
