@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{/*隐藏滚动条*/
+            height: 100%;
+            overflow: hidden;
+        }
+        .warp{
+            width: 40px;
+            height: 300px;
+            border: 1px solid;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .inner{
+            height: 600px;
+            background-image: repeating-linear-gradient(220deg,black 0,black 10px,white 10px,white 20px);
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="inner"></div>
+</div>
+<script>
+    var inner = document.querySelector('.inner');
+    var flag = 0
+    setInterval(function () {
+        flag++
+        if(flag==300) flag = 0;
+        inner.style.marginTop = -flag+'px'
+    },1000/60)
+</script>
+</body>
+</html>
