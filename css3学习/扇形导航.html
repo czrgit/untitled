@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .warp{
+            position: fixed;
+            right: 50px;
+            bottom: 15px;
+            width: 40px;
+            height: 40px;
+        }
+        .warp>.inner{
+            height: 100%;
+        }
+        .warp > .inner >img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 4px;
+            border-radius: 50%;
+        }
+        .warp>.home{
+            position: absolute;
+            /*display: none;*/
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url("./img/tx.png") no-repeat 50% 50%;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="inner">
+        <img src="./img/小吃.png" alt="">
+        <img src="./img/水稻.png" alt="">
+        <img src="./img/烟酒.png" alt="">
+        <img src="./img/蔬菜.png" alt="">
+        <img src="./img/食材.png" alt="">
+    </div>
+    <div class="home">
+
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var home = document.querySelector('.home');
+        var imgs = document.querySelectorAll('.warp > .inner >img');
+        var c = 140;
+        var flag = true;
+        home.onclick = function () {
+            if(flag){
+                this.style.transform="rotate(-720deg)";
+                for (var i = 0;i<imgs.length;i++){
+                    imgs[i].style.transition = '1s '+(i*0.1)+'s';
+                    imgs[i].style.transform = 'rotate(-720deg) scale(1)';
+                    imgs[i].style.left = -getPiont(c,90*i/(imgs.length-1)).left+'px';
+                    imgs[i].style.top = -getPiont(c,90*i/(imgs.length-1)).top+'px';
+                }
+            }else{
+                this.style.transform="rotate(0deg)";
+                for (var i = 0;i<imgs.length;i++){
+                    imgs[i].style.transition = '1s '+((imgs.length-1-i)*0.1)+'s';
+                    imgs[i].style.transform = 'rotate(0deg) scale(1)';
+                    imgs[i].style.left = 0+'px';
+                    imgs[i].style.top = 0+'px';
+                }
+            }
+            flag = !flag
+        }
+
+        function getPiont(c,deg) {
+            var x = Math.round(c*Math.sin(deg*Math.PI/180));
+            var y = Math.round(c*Math.cos(deg*Math.PI/180));
+            return{left:x,top:y}
+        }
+
+        for(var i = 0;i<imgs.length;i++){
+            imgs[i].onclick = function () {
+                this.style.transtion='0.5s';
+                this.style.transform = 'rotate(-720deg) scale(2)';
+                this.style.opacity = 0.1;
+
+                this.addEventListener("transitionend",fn)
+            }
+        }
+        function fn() {
+            this.style.transtion = "0.3s ";
+            this.style.transform = 'rotate(-720deg) scale(1)';
+            this.style.opacity = 1;
+            this.removeEventListener("transitionend",fn)
+        }
+    }
+</script>
+</body>
+</html>
