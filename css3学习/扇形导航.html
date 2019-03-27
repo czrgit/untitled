@@ -60,9 +60,6 @@
 <script>
     window.onload = function () {
         var home = document.querySelector('.home');
-        var imgs = document.querySelectorAll('.warp > .inner >img');
-        var c = 140;
-        var flag = true;
         home.onclick = function () {
             if(flag){
                 this.style.transform="rotate(-720deg)";
@@ -83,6 +80,9 @@
             }
             flag = !flag;
         }
+        var imgs = document.querySelectorAll('.warp > .inner >img');
+        var c = 140;
+        var flag = true;
 
         function getPiont(c,deg) {
             var x = Math.round(c*Math.sin(deg*Math.PI/180));
