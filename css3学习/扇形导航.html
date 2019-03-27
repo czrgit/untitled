@@ -81,7 +81,7 @@
                     imgs[i].style.top = 0+'px';
                 }
             }
-            flag = !flag
+            flag = !flag;
         }
 
         function getPiont(c,deg) {
@@ -89,7 +89,7 @@
             var y = Math.round(c*Math.cos(deg*Math.PI/180));
             return{left:x,top:y}
         }
-
+        //第二部分鼠标点击放大然后恢复
         for(var i = 0;i<imgs.length;i++){
             imgs[i].onclick = function () {
                 this.style.transtion='0.5s';
