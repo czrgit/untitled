@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+
+        }
+    </style>
+</head>
+<body>
+<!--<script>-->
+    <!--//1.独立的对象，建2个 一个xiaohang,一个是xiaoli-->
+    <!--//2.让xiaowang跟xiaoli通过门铃进行通信-->
+    <!--//3.先看xiaowang家有没有门，如果没有门先建门，如果有门直接通过门铃通信hihi-->
+    <!--//4.两个单例之间进行通信-->
+    <!--var xiaowang = (function () {-->
+        <!--var xiaowangjia = function (msg) {-->
+            <!--this.menling = msg-->
+        <!--}-->
+        <!--var men;-->
+        <!--var info = {-->
+            <!--sendMessge: function (msg) {-->
+                <!--if (!men) {-->
+                    <!--men = new xiaowangjia(msg)-->
+                <!--}-->
+                <!--return men;-->
+            <!--}-->
+        <!--};-->
+        <!--return info-->
+    <!--})();-->
+
+    <!--var xiaoli = {-->
+        <!--callXiaowang: function (msg) {-->
+            <!--var _xw = xiaowang.sendMessge(msg)-->
+            <!--alert(_xw.menling)-->
+            <!--_xw = null-->
+        <!--}-->
+    <!--}-->
+
+    <!--xiaoli.callXiaowang('hihi')-->
+<!--</script>-->
+<script src="../../jquery-3.3.1.min.js"></script>
+<script>
+    var top ={
+        init:function () {
+            this.render();
+            this.bind();
+        },
+        a:4,
+        render:function () {
+            var me= this;
+            me.btna = $('#a');
+        },
+        bind:function () {
+            var me =this;
+            me.btna.click(function () {
+                me.test()
+            });
+        },
+        test:function () {
+            a=5;
+            console.log(a)
+        }
+    }
+    var banner ={
+        init:function () {
+            this.render();
+            this.bind();
+        },
+        a:4,
+        render:function () {
+            var me= this;
+            me.btnd = $('#d');
+        },
+        bind:function () {
+            var me =this;
+            me.btnd.click(function () {
+                me.test()
+            });
+        },
+        test:function () {
+            a = 6
+            console.log(a)
+        }
+    }
+    // top.init();
+    banner.init()
+</script>
+<div id="a"></div>
+<div id="d"></div>
+</body>
+</html>
