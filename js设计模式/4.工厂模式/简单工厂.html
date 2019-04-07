@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var XMLHttpFactory = function () {
+
+    }
+    XMLHttpFactory.createXMLHttp = function () {
+       var XMLHttp = null
+       if(window.XMLHttpRequest){
+           XMLHttp = new XMLHttpRequest()
+       } else if(window.ActiveXObject){
+           XMLHttp = new ActiveXObject('Microsoft.XMLHTTP')
+       }
+       return XMLHttp
+    }
+
+    var AjaxHander = function () {
+        var XMLHttp = XMLHttpFactory.createXMLHttp()
+    }
+</script>
+</body>
+</html>

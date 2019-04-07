@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../jquery-3.3.1.min.js"></script>
+    <script>
+        ~(function () {
+            var o = $({})
+            $.jianting = function () {
+                o.on.apply(o,arguments)
+            }
+            $.fabu = function () {
+                o.trigger.apply(o,arguments)
+            }
+            $.qingchu = function () {
+                o.off.apply(o,arguments)
+            }
+        })()
+
+        $.jianting('/test/ls',function (e,a,b,c) {
+            alert(a+'||'+b+'||'+c)
+        })
+        $.jianting('/test/ls',function (e,a,b,c) {
+            console.log(e)
+        })
+        $.qingchu('/test/ls',function () {
+            alert('ok')
+        })
+        $.fabu('/test/ls',[147,258,369])
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

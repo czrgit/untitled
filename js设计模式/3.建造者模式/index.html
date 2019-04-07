@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 1.产出的东西是房子
+    * 2.baogongtou调用工人进行开工，而且他要很清楚工人们的某一个大项
+    * 3.工人是盖房子的，工人可以建卧室、厨房、客厅
+    * 4.包工头只是一个接口而已，他不干活
+    *
+    *
+    * */
+    function Fangzi() {
+        this.woshi = ''
+        this.keting = ''
+        this.chufang = ''
+    }
+
+    function Baogongtou() {
+        this.gaifangzi = function (gongren) {
+            gongren.jian_woshi()
+            gongren.jian_keting()
+            gongren.jian_chufang()
+        }
+    }
+
+    function Gongren() {
+        this.jian_woshi = function () {
+            alert('卧室盖好')
+        }
+        this.jian_keting = function () {
+            alert('客厅盖好')
+        }
+        this.jian_chufang = function () {
+            alert('厨房盖好')
+        }
+        this.jiaogong = function () {
+            var _fangzi = new Fangzi()
+            _fangzi.woshi = 'ok'
+            _fangzi.keting = 'ok'
+            _fangzi.chufang = 'ok'
+            return _fangzi
+        }
+    }
+    var gongren = new Gongren();
+    var baogongtou = new Baogongtou();
+    baogongtou.gaifangzi(gongren)
+    var myFangzi = gongren.jiaogong()
+    console.log(myFangzi)
+</script>
+</body>
+</html>
