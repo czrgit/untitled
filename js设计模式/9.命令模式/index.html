@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var lian = {}
+    lian.paobing = function (pao_num) {
+        alert(pao_num)
+    }
+    lian.bubing = function (bubing_num) {
+        alert(bubing_num)
+    }
+    lian.lianzhang = function (mingling) {
+        lian[mingling.type](mingling.num)//首先[]找到对象里的函数，然后往这个函数传递值
+        console.log(lian)
+    }
+    lian.lianzhang({
+        type:'paobing',
+        num:100
+    })
+    lian.lianzhang({
+        type: 'bubing',
+        num: 300
+    })
+</script>
+</body>
+</html>
