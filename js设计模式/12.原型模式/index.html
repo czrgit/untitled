@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function clone(obj) {
+        var ret,k,b;
+        if(b=(obj instanceof Array) || obj instanceof Object){
+            ret = b?[]:{}
+            for (k in obj) {
+                if((obj[k] instanceof Array)||(obj[k] instanceof Object)){
+                    ret[k] = clone(obj[k])
+                }else {
+                    ret[k] = obj[k]
+                }
+            }
+        }
+        return ret
+    }
+    var obj = {
+        'a':[
+            'aa',
+            {
+                num:1
+            }
+        ],
+        str:'string',
+        cc:{
+            test:'5555'
+        }
+
+    }
+
+    var result = clone(obj)
+    result.str = 'ssss'
+    console.log(result)
+    console.log(obj)
+</script>
+</body>
+</html>
