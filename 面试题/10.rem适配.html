@@ -10,8 +10,8 @@
             margin: 0;
         }
         #box{
-            width: 0.5rem;
-            height: 0.5rem;
+            width: 3.75rem;
+            height: 1rem;
             background-color: red;
         }
     </style>
@@ -33,7 +33,7 @@
     //2.
     // */
     window.onload = function () {
-        var width = document.documentElement.clientWidth;//获取屏幕的最大宽度
+        var width = document.documentElement.clientWidth/3.75;//获取屏幕的最大宽度
         var htmlNode = document.querySelector('html')//获取html节点
         htmlNode.style.fontSize = width + 'px'//设置html的根字体大小为屏幕的宽度
     }
