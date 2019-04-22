@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            width: 200px;
+            height: 200px;
+            background-color: #dd88ee;
+        }
+    </style>
+</head>
+<body>
+<div class="test">
+
+</div>
+<script>
+    window.onload = function () {
+        document.addEventListener('touchstart',function (e) {
+            e = e || event
+            e.preventDefault()
+        })
+        var test = document.querySelector('.test')
+        test.addEventListener('touchend',function (e) {
+            e = e||event
+            console.log(e)
+        })
+        //移动端a标签的误触
+        var aNode = document.querySelectorAll('a')
+        for(var i = 0;i<aNode.length;i++){
+            aNode[i].addEventListener('touchstart',function () {
+                this.isMoved = false
+            })
+            aNode[i].addEventListener('touchmove',function () {
+                this.isMoved = true
+            })
+            aNode[i].addEventListener('touchend',function () {
+                if(!this.isMoved){
+                    location.href = this.href
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>
